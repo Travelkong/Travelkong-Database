@@ -1,12 +1,11 @@
-create function tags_from_post(in_post_id varchar(21))
-returns table(tag_id varchar(21))
+create function remove_post_tags(in_tag_id varchar(21), in_post_id varchar(21))
+returns table(deleted_count integer)
 language plpgsql as $$
+declare
+	rows_affected integer;
 begin
-	return query (
-		select t.name
-		from tags t
-		inner join post_tags pt on t.id = pt.tag_id
-		where pt.post_id = $1
-	);
+	delete from post_tags pt where pt.tag_id = $1 and pt.post_id = $2;
+	get diagnostics rows_affected = row_count;
+	return query select rows_affected;
 end;
 $$;
