@@ -1,4 +1,4 @@
-CREATE OR REPLACE FUNCTION set_created_at()
+CREATE OR REPLACE FUNCTION set_user_created_at()
 RETURNS TRIGGER AS $created_at$
 BEGIN
     IF NEW.created_at IS NULL THEN

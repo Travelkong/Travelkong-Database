@@ -1,4 +1,4 @@
-create or replace function is_user_refresh_token_exists(user_id uuid)
+create or replace function has_user_refresh_token_exists(user_id uuid)
 returns boolean
 language plpgsql as $$
 begin

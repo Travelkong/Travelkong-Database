@@ -1,2 +1,2 @@
-CREATE OR REPLACE TRIGGER trg_set_created_at BEFORE INSERT ON users
-FOR EACH ROW EXECUTE FUNCTION set_created_at();
+CREATE OR REPLACE TRIGGER trg_set_user_created_at BEFORE INSERT ON users
+FOR EACH ROW EXECUTE FUNCTION set_user_created_at();
